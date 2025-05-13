@@ -1,8 +1,13 @@
 .PHONY: default
 default: modules
 
-obj-m = driver.o
+obj-m = kRopr.o
 
 .PHONY: modules
 modules:
 	$(MAKE) -C $(KERNELDIR) M=$(PWD) modules
+
+
+.PHONY: clean
+clean:
+	rm -rf *.o *.mod.c *.mod *.symvers *.order *.ko .*.cmd
